@@ -1,0 +1,105 @@
+@use "vuetify/styles";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+@font-face {
+  font-family: 'mantou-sans';
+  src: url('/assets/fonts/MantouSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-family:Inter, Noto Sans TC;
+
+
+.v-application {
+  [class*='text-'] {
+    font-family:$font-family, sans-serif !important;
+  }
+  font-family: $font-family, sans-serif !important;
+  .text-h1{
+    font-size: 2.5rem !important;
+    font-weight: 700;
+    line-height: 3.75rem;
+    letter-spacing: -0.02em !important;
+   
+  }
+  .text-h2{
+    font-size: 2rem !important;
+    font-weight: 700;
+    line-height: 2.4rem;
+    letter-spacing: 0em !important;
+  }
+  .text-h3{
+    font-size: 1.75rem !important;
+    font-weight: 700;
+    line-height: 2.125rem;
+    letter-spacing: 0em !important;
+  }
+
+  .text-h4{
+    font-size: 1.5rem !important;
+    font-weight: 700;
+    line-height: 2.25rem;
+    letter-spacing: 0em !important;
+  }
+
+  .text-h5{
+    font-size: 1.25rem !important;
+    font-weight: 700;
+    line-height: 1.5rem;
+    letter-spacing: 0em !important;
+  }
+
+  .text-h6{
+    font-size: 1rem !important;
+    font-weight: 700;
+    line-height: 1.2rem;
+    letter-spacing: 0em !important;
+  }
+
+
+  // Body/Base text
+  .text-subtitle-1{
+    font-size: 1.125rem !important;
+    font-weight: 400;
+    line-height: 1.6875rem;
+    letter-spacing: 0em !important;
+  }
+
+  // Body/Body
+  .text-body-1{
+    font-size: 1rem !important;
+    font-weight: 400;
+    line-height: 1.5rem;
+    letter-spacing: 0em !important;
+  }
+
+  //styleName: Body/Small;
+  .text-caption{
+    font-size: 0.875rem !important;
+    font-weight: 400;
+    line-height: 1.3125rem;
+    letter-spacing: 0em !important;
+  }
+
+  // mantou
+  .text-mantou{
+    font-family: mantou-sans !important;
+    font-weight: 400;
+  }
+
+  .styled-gradient{
+   background: linear-gradient(90deg, #E6793B 1.54%, #FF4185 97.86%);
+   background: -webkit-linear-gradient(90deg, #E6793B 1.54%, #FF4185 97.86%);
+   background-clip: text;
+   -webkit-background-clip: text;
+   color: transparent;
+
+  }
+}
+
+
+
