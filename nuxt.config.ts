@@ -1,4 +1,16 @@
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+      router: {
+        base: '/campaign-legislator/'
+      }
+    }
+    : {}
+
+
+
 const config = {
+  ...routerBase,
   buildModules: ['@nuxt/typescript-build', "'@nuxtjs/vuetify'"],
   build: {
     transpile: ['vuetify'],
