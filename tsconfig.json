@@ -28,7 +28,8 @@
       "@nuxt/typescript-build",
       "@types/node",
       "vuetify",
-      "@types/jest"
+      "@types/jest",
+      "node"
     ]
   },
   "exclude": [

@@ -7,8 +7,6 @@ const routerBase =
     }
     : {}
 
-
-
 const config = {
   ...routerBase,
   buildModules: ['@nuxt/typescript-build', "'@nuxtjs/vuetify'"],

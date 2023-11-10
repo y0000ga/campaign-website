@@ -2,6 +2,7 @@
   "name": "nuxt-app",
   "private": true,
   "type": "module",
+  "homepage": "https://y0000ga.github.io/campaign-website",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -23,6 +24,7 @@
     "@nuxt/typescript-build": "^3.0.1",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@types/jest": "^29.5.7",
+    "@types/node": "^20.9.0",
     "@vitejs/plugin-vue": "^4.4.0",
     "@vue/test-utils": "^2.4.1",
     "@vue/vue3-jest": "^29.2.6",
