@@ -1,9 +1,10 @@
 <template>
-  <swiper :effect="'coverflow'" :spaceBetween="0" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'" :pagination="customPagination" :modules="modules" :loop="true" class="mySwiper">
-    <swiper-slide v-for="policy in    [...POLICY,...POLICY]   " :key="policy.title" class="bg-white d-flex">
-      <v-img :src="policy.imgSrc" width="428px" style="border-radius: 24px;" />
-      <v-container class="pa-0 ml-8 d-flex flex-column justify-center">
-        <v-chip variant="text" :style="{ 'background-color': policy.color, 'width': 'fit-content' }">
+  <swiper :effect="'coverflow'" :spaceBetween="0" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'"
+    :pagination="customPagination" :modules="modules" :loop="true" class="mySwiper">
+    <swiper-slide v-for="policy in    [...POLICY, ...POLICY]   " :key="policy.title" class="bg-white d-flex">
+      <v-img :src="policy.imgSrc" width="428px" class="ga-6" />
+      <v-container class="pa-0 ml-lg-8 d-flex flex-column justify-center">
+        <v-chip variant="text" class="w-fit" :style="{ 'background-color': policy.color }">
           {{ policy.subTitle }}
         </v-chip>
         <h4 class="text-h4 mt-4 mb-10">{{ policy.title[0] }}<br />{{ policy.title[1]
@@ -16,15 +17,17 @@
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
-
 import 'swiper/css/pagination'
-import {  Pagination } from 'swiper/modules'
+import { Pagination } from 'swiper/modules'
 import { POLICY } from '~/utils/constant'
+import BaseButton from './BaseButton.vue'
+
 
 export default {
   components: {
     Swiper,
     SwiperSlide,
+    BaseButton
   },
   setup() {
     const customPagination = {
@@ -34,14 +37,14 @@ export default {
       }
     }
     return {
-      modules: [ Pagination],
+      modules: [Pagination],
       customPagination
     }
   },
 }
 </script>
 
-<style scope lang="scss">
+<style scoped lang="scss">
 .swiper {
   width: 100%;
   padding-top: 50px;
@@ -57,19 +60,14 @@ export default {
   padding: 32px;
   border-radius: 32px;
   overflow: hidden;
-}
-
-.swiper-slide {
   transform: scale(0.9);
-  &.swiper-slide-active{
+  &.swiper-slide-active {
     transform: scale(1);
   }
-}
-
-
-.swiper-slide img {
+  img {
   display: block;
   width: 100%;
+}
 }
 
 .swiper-pagination {
@@ -77,5 +75,15 @@ export default {
   top: var(--swiper-pagination-top, auto);
   left: 0;
   width: 100%;
+}
+
+@media(max-width: 960px){
+
+  .swiper-slide{
+    width: 311px;
+    height:508px;
+    display:flex;
+    flex-direction: column;
+  }
 }
 </style>

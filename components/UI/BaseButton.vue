@@ -31,7 +31,7 @@ const color = computed(() => props.theme === 'primary' ? "#DA7D4A" : props.theme
 )
 </script>
 
-<style scope lang="scss">
+<style scoped lang="scss">
 .v-btn.baseButton {
   width: fit-content;
   height: fit-content;
