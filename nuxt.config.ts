@@ -45,7 +45,10 @@ const config = {
     },
     baseURL: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/campaign-website/' : '/',
     buildAssetsDir: '/static/'
-  }
+  },
+  generate: {
+    fallback: "404.html"
+  },
 }
 
 export default config

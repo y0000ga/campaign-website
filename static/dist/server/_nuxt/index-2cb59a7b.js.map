@@ -1,1 +1,0 @@
-{"version":3,"file":"index-2cb59a7b.js","sources":["../../../../pages/about/index.vue"],"sourcesContent":["<template>\r\n  \r\n  <div>About<v-btn depressed color=\"info\">Vuetify 3</v-btn></div>\r\n</template>"],"names":["_ssrRenderComponent"],"mappings":";;;;;;;AAEmB,QAAAA,mBAAS,kBAAA;AAAA,IAAC,WAAY;AAAA;;;;;;;;;;;;;;;;;;;;;;"}
