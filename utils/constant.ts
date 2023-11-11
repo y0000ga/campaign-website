@@ -6,6 +6,16 @@ import learn from '~/assets/image/policy-learn.svg'
 import medical from '~/assets/image/policy-medical.svg'
 import donate from '~/assets/image/donate.svg'
 import mail from '~/assets/image/mail.svg'
+import nav_about from '~/assets/image/icon/nav/about.svg'
+import nav_activity from '~/assets/image/icon/nav/activity.svg'
+import nav_donate from '~/assets/image/icon/nav/donate.svg'
+import nav_service from '~/assets/image/icon/nav/service.svg'
+import nav_policy from '~/assets/image/icon/nav/policy.svg'
+import nav_active_about from '~/assets/image/icon/nav/active/about.svg'
+import nav_active_activity from '~/assets/image/icon/nav/active/activity.svg'
+import nav_active_donate from '~/assets/image/icon/nav/active/donate.svg'
+import nav_active_service from '~/assets/image/icon/nav/active/service.svg'
+import nav_active_policy from '~/assets/image/icon/nav/active/policy.svg'
 
 export const LEGISLATOR = {
   name: "喵立翰",
@@ -13,15 +23,15 @@ export const LEGISLATOR = {
 }
 
 export const NAV = [{
-  title: "候選人主張", route: "/about"
+  title: "立翰主張", route: "/about", icon: nav_about, activeIcon: nav_active_about
 }, {
-  title: "最新活動", route: "/activity"
+  title: "最新活動", route: "/activity", icon: nav_activity, activeIcon: nav_active_activity
 }, {
-  title: "政策議題", route: "/policy"
+  title: "政策議題", route: "/policy", icon: nav_policy, activeIcon: nav_active_policy
 }, {
-  title: "小額捐款", route: "/donate"
+  title: "小額捐款", route: "/donate", icon: nav_donate, activeIcon: nav_active_donate
 }, {
-  title: "民眾服務信箱", route: "/service"
+  title: "服務信箱", route: "/service", icon: nav_service, activeIcon: nav_active_service
 }]
 
 export const SOCIAL = [{

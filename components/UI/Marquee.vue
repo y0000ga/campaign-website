@@ -17,23 +17,25 @@ const props = defineProps({
 })
 </script>
 
-<style setup lang="scss">
+<style scoped setup lang="scss">
 .marquee {
   position: relative;
   height: 96px;
   font-size: 64px;
-}
-
-.marquee .wrapper {
+  .wrapper {
   animation: wrapper 10s linear infinite;
-}
-
-.marquee .content {
+  }
+  .content {
+    height:96px;
   position: absolute;
   white-space: nowrap;
   transform: translateX(0);
   animation: content 10s linear infinite;
+  display: flex;
+  align-items:center;
 }
+}
+
 
 @keyframes wrapper {
   0% {
@@ -53,5 +55,15 @@ const props = defineProps({
   100% {
     transform: translateX(-100%);
   }
+}
+
+@media(max-width:768px){
+  .marquee {
+  height: 62px;
+  font-size: 40px;
+  .content{
+    height: 62px
+  }
+}
 }
 </style>
