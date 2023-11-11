@@ -1,6 +1,8 @@
 const config = {
-  baseURL: process.env.NODE_ENV === 'production' ? '/campaign-website/' : '/',
-  buildAssetsDir: '/static/',
+  target: 'static',
+  router: {
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/nuxt-landing-page/dist/' : '/'
+  },
   buildModules: ['@nuxt/typescript-build', "'@nuxtjs/vuetify'"],
   build: {
     transpile: ['vuetify'],
