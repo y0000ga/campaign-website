@@ -1,7 +1,7 @@
 const config = {
   target: 'static',
   router: {
-    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/nuxt-landing-page/dist/' : '/'
+    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/campaign-website/' : '/'
   },
   buildModules: ['@nuxt/typescript-build', "'@nuxtjs/vuetify'"],
   build: {
@@ -42,7 +42,9 @@ const config = {
       link: [
         {rel:'icon',type:'image/x-icon',href:'/assets/image/logo.svg'}
       ]
-    }
+    },
+    baseURL: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/campaign-website/' : '/',
+    buildAssetsDir: '/static/'
   }
 }
 
