@@ -14,7 +14,7 @@
     </v-container>
 </template>
 
-<script scoped lang="ts">
+<script setup lang="ts">
 import { LEGISLATOR} from '~/utils/constant';
 </script>
 
