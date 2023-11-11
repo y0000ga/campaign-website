@@ -1,14 +1,6 @@
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-      router: {
-        base: '/campaign-legislator/'
-      }
-    }
-    : {}
-
 const config = {
-  ...routerBase,
+  baseURL: process.env.NODE_ENV === 'production' ? '/campaign-website/' : '/',
+  buildAssetsDir: '/static/',
   buildModules: ['@nuxt/typescript-build', "'@nuxtjs/vuetify'"],
   build: {
     transpile: ['vuetify'],
