@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-intro></home-intro>
+    <top-intro></top-intro>
     <v-container class="pa-0">
       <v-row class="d-flex justify-center align-end">
         <v-img :aspect-ratio="723 / 404" :src="mainBg" class="absolute mainBg" />
@@ -25,7 +25,7 @@
         <v-container class="pa-0"><v-img class="w-100" :src="ACTIVITY[0].imgSrc" /><v-col
             class="d-flex flex-column mt-4 ga-2">
             <p class="text-caption text-text-secondary">{{ ACTIVITY[0].date }}</p>
-            <p class="text-h5 text-text-primary">{{ ACTIVITY[0].title }}</p>
+            <p class="text-h5 text-text-primary cursor-pointer" @click="homeStore.handleActiveDialog(Dialog.ACTIVITY,ACTIVITY[0].id)">{{ ACTIVITY[0].title }}</p>
             <p class="text-body-1">{{ ACTIVITY[0].content }}</p>
           </v-col></v-container>
         <v-container class="pa-0 d-flex flex-column relative ga-7">
@@ -33,7 +33,7 @@
             <v-img :src="activity.imgSrc" cover class="subImg rounded-lg" />
             <v-col class="pa-0" style="width:50%;height:100%">
               <p class="text-caption text-text-secondary">{{ activity.date }}</p>
-              <h6 class="my-2 text-h6 text-text-primary">{{ activity.title }}</h6>
+              <h6 class="my-2 text-h6 text-text-primary cursor-pointer" @click="homeStore.handleActiveDialog(Dialog.ACTIVITY, activity.id)">{{ activity.title }}</h6>
               <p class="text-body-1 text-text-primary multi">{{ activity.content }}</p>
             </v-col>
           </v-row>
@@ -47,36 +47,48 @@
     <v-container class="d-flex justify-center  px-26 ga-6 mainBlock actions">
       <base-action-card v-for="item in ACTION" :id="item.id" :title="item.title" :content="item.content"
         :imgSrc="item.imgSrc" :button="item.button"></base-action-card>
-
     </v-container>
-    <v-container class="d-flex justify-center flex-column px-26 align-center ga-4 bottomIntro">
-      <v-row class="slogan">
-        <h1 class="styled-gradient text-mantou" style="font-size: 64px;">台灣的明天</h1>
-        <h1 class="styled-gradient text-mantou" style="font-size: 64px;">喵先鋪路</h1>
-      </v-row>
-      <v-row class="d-flex justify-center align-center">
-        <v-card class="d-flex align-center px-4 py-3 shadow-md">
-          <v-chip class="number text-white rounded-pill d-flex justify-center mr-3">3</v-chip>
-          <h3 class="text-h1 text-primary">{{ LEGISLATOR.name }} {{ LEGISLATOR.englishName }}</h3>
-        </v-card>
-      </v-row>
-    </v-container>
+    <bottom-intro></bottom-intro>
 <base-footer></base-footer>
+<base-dialog :isDesktop="isDesktop"></base-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
-import { LEGISLATOR, PROMOTION, ADVOCATE, TAIWAN_FUTURE, ADVOCATE_CONTENT, ACTIVITY, ACTION, SOCIAL } from '~/utils/constant';
+import {  PROMOTION, ADVOCATE, TAIWAN_FUTURE, ADVOCATE_CONTENT, ACTIVITY, ACTION } from '~/utils/constant';
 import main from '~/assets/image/main.svg'
 import mainBg from '~/assets/image/main-bg.svg'
 import Marquee from '~/components/UI/Marquee.vue';
 import advocate from '~/assets/image/advocate.svg'
 import BaseButton from '~/components/UI/BaseButton.vue';
-import homeIntro from '~/components/Home/Intro.vue'
+import TopIntro from '~/components/Home/Intro/TopIntro.vue'
 import MainTitle from '~/components/UI/MainTitle.vue';
 import BaseSwiper from '~/components/UI/BaseSwiper.vue';
 import BaseActionCard from '~/components/UI/BaseActionCard.vue';
 import BaseFooter from '~/layouts/BaseFooter.vue';
+import BottomIntro from '~/components/Home/Intro/BottomIntro.vue';
+import BaseDialog from '~/components/UI/Dialog/BaseDialog.vue';
+import { useHomeStore } from '~/stores/home';
+
+const homeStore = useHomeStore()
+
+const isDesktop = ref(true)
+
+
+onMounted(() => {
+  isDesktop.value = window.innerWidth > 1200
+  window.addEventListener("resize", handleWindowWidth)
+})
+
+onUnmounted(() => {
+  window.removeEventListener("resize", handleWindowWidth)
+})
+
+const handleWindowWidth = (event: Event) => {
+  const target = event.target as Window
+  isDesktop.value = target.innerWidth > 1200
+}
+
 </script>
 
 <style setup lang="scss" scoped>
@@ -102,15 +114,6 @@ import BaseFooter from '~/layouts/BaseFooter.vue';
   width: 723px
 }
 
-.v-chip.number {
-  background: linear-gradient(90deg, #E6793B 1.54%, #FF4185 97.86%);
-  font-size: 32px;
-  font-weight: 900;
-  line-height: 48px;
-  width: 50px;
-  height: 50px;
-}
-
 .max-w-primary {
   max-width: 1320px;
 }
@@ -123,18 +126,9 @@ import BaseFooter from '~/layouts/BaseFooter.vue';
   padding:104px 0px;
 }
 
-.bottomIntro {
-  .slogan {
-    display: flex;
-    gap: 12px;
-  }
-}
-
 .v-application .px-26{
   padding:104px 0px !important
 }
-
-
 
 @media(max-width:1280px){
   .v-application .px-26{
@@ -198,14 +192,6 @@ import BaseFooter from '~/layouts/BaseFooter.vue';
   .subImg {
     max-width: 109px;
   }
-  .bottomIntro {
-  .slogan {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap:0px
-  }
-}
 
 .actions{
   display: flex;
@@ -218,15 +204,6 @@ import BaseFooter from '~/layouts/BaseFooter.vue';
 }
 }
 
-@media(max-width:600px){
-  .bottomIntro{
-    .text-h1{
-          font-size: 1.75rem !important;
-    font-weight: 700;
-    line-height: 2.125rem;
-    letter-spacing: 0em !important;
-    }
-  }
-}
+
 
 </style>
