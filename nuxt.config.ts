@@ -46,7 +46,7 @@ export default defineNuxtConfig({
     baseURL: '/campaign-website/'
   },
   components: true,
-  imports: {
-    dirs: ['stores']
-  }
+  // imports: {
+  //   dirs: ['stores']
+  // }
 })
