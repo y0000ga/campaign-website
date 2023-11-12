@@ -1,8 +1,4 @@
 const config = {
-  target: 'static',
-  router: {
-    base: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/campaign-website/' : '/'
-  },
   buildModules: ['@nuxt/typescript-build', "'@nuxtjs/vuetify'"],
   build: {
     transpile: ['vuetify'],
