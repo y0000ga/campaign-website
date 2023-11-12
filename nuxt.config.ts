@@ -1,5 +1,11 @@
-const config = {
-  buildModules: ['@nuxt/typescript-build', "'@nuxtjs/vuetify'"],
+import { baseURL } from "nuxt/dist/core/runtime/nitro/paths";
+
+export default defineNuxtConfig({
+  target: 'static',
+  experimental: {
+    payloadExtraction: false
+  },
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
   build: {
     transpile: ['vuetify'],
   },
@@ -34,17 +40,16 @@ const config = {
         { name: "og:url", content: "" }, {
           name: "og:type",content:"website"
         }
+    
+          
+
       ],
       link: [
         {rel:'icon',type:'image/x-icon',href:'/assets/image/logo.svg'}
       ]
     },
-    baseURL: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/campaign-website/' : '/',
-    buildAssetsDir: '/static/'
+    baseURL: '/campaign-website/'
   },
-  generate: {
-    fallback: "404.html"
-  },
-}
+  components: true,
 
-export default config
+})

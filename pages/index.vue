@@ -61,29 +61,7 @@
         </v-card>
       </v-row>
     </v-container>
-    <v-container class="d-flex justify-center align-start px-26 bg-background-secondary max-w-full footer">
-      <v-row class="d-flex flex-column ga-4">
-        <div class="d-flex align-center">
-          <v-chip class="number footer text-white rounded-pill d-flex justify-center mr-3">3</v-chip>
-          <h3 class="text-h3 text-primary">{{ LEGISLATOR.name }} {{ LEGISLATOR.englishName }}</h3>
-        </div>
-        <div class="d-flex ga-4"><v-btn class="rounded-pill px-0 bg-white" style="height:48px;min-width:48px"
-            variant="text" v-for="item in SOCIAL"><v-icon style="font-size:28px" :color="item.color"
-              :icon="'mdi-' + item.icon" :class="item.class || ''"></v-icon></v-btn>
-        </div>
-        <p class="text-caption">© 2023 喵立翰 Miao Li-Han 版權所有</p>
-      </v-row>
-      <v-row class="d-flex flex-column ga-4">
-        <h4 class="text-h4">競選總部</h4>
-        <p class="text-body-1">
-          辦公室地址：喵星區，毛茸茸大道88號，喵喵大樓3樓
-          <br />
-          電話：(02) 888-5678
-          <br />
-          電子郵件地址：meowoffice@linmeow.tw
-        </p>
-      </v-row>
-    </v-container>
+<base-footer></base-footer>
   </div>
 </template>
 
@@ -98,6 +76,7 @@ import homeIntro from '~/components/Home/Intro.vue'
 import MainTitle from '~/components/UI/MainTitle.vue';
 import BaseSwiper from '~/components/UI/BaseSwiper.vue';
 import BaseActionCard from '~/components/UI/BaseActionCard.vue';
+import BaseFooter from '~/layouts/BaseFooter.vue';
 </script>
 
 <style setup lang="scss" scoped>
@@ -130,12 +109,6 @@ import BaseActionCard from '~/components/UI/BaseActionCard.vue';
   line-height: 48px;
   width: 50px;
   height: 50px;
-
-  &.footer {
-    width: 32px;
-    height: 32px;
-    font-size: 21px
-  }
 }
 
 .max-w-primary {
@@ -161,42 +134,13 @@ import BaseActionCard from '~/components/UI/BaseActionCard.vue';
   padding:104px 0px !important
 }
 
-.footer{
-    .v-row{
-      margin:0px;
-      max-width:35%
-    }
-  }
+
 
 @media(max-width:1280px){
   .v-application .px-26{
     padding: 64px 0px 132px 0px !important;
   }
 }
-
-@media(max-width:1120px){
-  .footer{
-    flex-direction: column;
-
-    .v-row{
-      margin: 12px 24px;
-      max-width: 100%;
-    }
-  }
-}
-
-@media(max-width:760px){
-.actions{
-  display: flex;
-  flex-direction: column;
-  .v-img{
-    width:135px;
-    height:126px;
-    border:solid 1px;
-  }
-}
-}
-
 
 @media(max-width: 960px) {
   .v-container.max-w-full{
@@ -242,7 +186,7 @@ import BaseActionCard from '~/components/UI/BaseActionCard.vue';
 }
 
 
-@media(max-width:768px) {
+@media(max-width:760px) {
   .mainImg {
     height: 254px
   }
@@ -262,6 +206,27 @@ import BaseActionCard from '~/components/UI/BaseActionCard.vue';
     gap:0px
   }
 }
+
+.actions{
+  display: flex;
+  flex-direction: column;
+  .v-img{
+    width:135px;
+    height:126px;
+    border:solid 1px;
+  }
+}
+}
+
+@media(max-width:600px){
+  .bottomIntro{
+    .text-h1{
+          font-size: 1.75rem !important;
+    font-weight: 700;
+    line-height: 2.125rem;
+    letter-spacing: 0em !important;
+    }
+  }
 }
 
 </style>

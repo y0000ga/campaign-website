@@ -12,9 +12,7 @@
     "lint": "eslint --ext .ts,.js,.vue .",
     "test": "vitest --environment jsdom",
     "all": "npm-run-all --parallel dev test",
-    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
-    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup -t true"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "@mdi/font": "^7.3.67",
