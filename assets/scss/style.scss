@@ -122,6 +122,10 @@ Noto Sans TC;
     gap:28px
   }
 
+  .ga-8{
+    gap: 32px;
+  }
+
   .pa-24 {
     padding: 96px
   }
@@ -167,6 +171,17 @@ position:absolute,
 
   a {
     all:unset
+  }
+
+  .cursor-pointer{
+    cursor: pointer;
+    &:hover{
+      background: linear-gradient(90deg, #E6793B 1.54%, #FF4185 97.86%);
+      background: -webkit-linear-gradient(90deg, #E6793B 1.54%, #FF4185 97.86%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent !important;
+    }
   }
 
 }

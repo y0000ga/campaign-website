@@ -24,6 +24,10 @@
   </v-container>
 </template>
 
+<script setup lang="ts">
+import { LEGISLATOR } from '~/utils/constant';
+</script>
+
 <style scoped lang="scss">
 .footer{
     .v-row{

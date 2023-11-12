@@ -1,7 +1,7 @@
 <template>
   <template>
     <div>
-      <v-app-bar :elevation="0" class="py-4 px-6 ma-4" style="background-color: transparent">
+      <v-app-bar :elevation="0" class="py-4 px-6 mr-4" style="background-color: transparent">
         <div class="w-100 d-flex justify-space-between align-center py-4 px-6 rounded-xl"
           style="background: rgba(255, 255, 255, 0.8)">
 

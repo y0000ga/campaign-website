@@ -1,9 +1,11 @@
 <template>
-  <v-btn variant="tonal" plain class="baseButton rounded-pill pa-0">
-    <h6 :class="['text-h6', 'my-5', 'ml-6', 'mr-2', props.theme === 'primary' ? 'text-white' : 'text-text-primary']">{{
-      props.title }}</h6>
-    <v-icon :icon="props.icon" :class="['mr-4', props.theme === 'primary' ? 'text-white' : 'text-text-primary']"
-      style="font-size: 24px;"></v-icon>
+  <v-btn variant="tonal" plain :class="['baseButton', 'rounded-pill', 'pa-0', props.fullWidth ? 'w-100' : '']">
+    <p
+      :class="[props.fullWidth ? '':'text-h6', 'my-5', 'ml-6', props.icon ? 'mr-2' : 'mr-6', props.theme === 'primary' ? 'text-white' : 'text-text-primary']" :style="{'fontWeight': props.fullWidth ? '600':''}">
+      {{
+        props.title }}</p>
+    <v-icon v-if="props.icon" :icon="props.icon"
+      :class="['mr-4', props.theme === 'primary' ? 'text-white' : 'text-text-primary']" style="font-size: 24px;"></v-icon>
   </v-btn>
 </template>
 
@@ -19,11 +21,15 @@ const props = defineProps({
   },
   icon: {
     type: String,
-    required: true
+    required: false
   },
   theme: {
     type: String as PropType<TTheme>,
     required: true
+  },
+  fullWidth: {
+    type: Boolean,
+    required: false
   }
 })
 

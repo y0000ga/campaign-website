@@ -1,16 +1,14 @@
-import { baseURL } from "nuxt/dist/core/runtime/nitro/paths";
-
 export default defineNuxtConfig({
   target: 'static',
   experimental: {
     payloadExtraction: false
   },
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify'],
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify', '@pinia/nuxt',],
   build: {
     transpile: ['vuetify'],
   },
   css: ["@/assets/scss/style.scss"],
-  modules: ["@pinia/nuxt", '@nuxtjs/robots',],
+  modules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', '@pinia-plugin-persistedstate/nuxt', '@nuxtjs/robots', ],
   robots: {
     UserAgent: "*",
     Disallow: "",
@@ -40,9 +38,6 @@ export default defineNuxtConfig({
         { name: "og:url", content: "" }, {
           name: "og:type",content:"website"
         }
-    
-          
-
       ],
       link: [
         {rel:'icon',type:'image/x-icon',href:'/assets/image/logo.svg'}
@@ -51,5 +46,7 @@ export default defineNuxtConfig({
     baseURL: '/campaign-website/'
   },
   components: true,
-
+  imports: {
+    dirs: ['stores']
+  }
 })
