@@ -54,10 +54,6 @@
     "@nuxtjs/robots": "^3.0.0",
     "@pinia/nuxt": "^0.5.1",
     "pinia": "^2.1.7",
-    "swiper": "^11.0.4",
-    "vue-window-size": "^2.0.0"
-  },
-  "overrides": { 
-  "vue": "latest"
-}
+    "swiper": "^11.0.4"
+  }
 }
