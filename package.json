@@ -1,6 +1,6 @@
 {
   "name": "nuxt-app",
-  "private": true,
+  "private": false,
   "type": "module",
   "homepage": "https://y0000ga.github.io/campaign-website",
   "scripts": {
