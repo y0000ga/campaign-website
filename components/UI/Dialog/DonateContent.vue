@@ -50,7 +50,7 @@
 
 <script lang="ts" setup>
 import donate from '~/assets/image/donate.svg'
-import BaseButton from '../BaseButton.vue';
+import BaseButton from '~/components/UI/BaseButton.vue';
 import { moneyTrans } from '~/utils/helper';
 import { DONATE_PLAN } from '~/utils/constant'
 import donate_finish from '~/assets/image/donate_finish.svg'

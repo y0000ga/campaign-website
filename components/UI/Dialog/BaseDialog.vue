@@ -26,10 +26,10 @@
 
 <script lang="ts" setup>
 import { useHomeStore } from '~/stores/home';
-import ServiceContent from './ServiceContent.vue';
-import DonateContent from './DonateContent.vue';
-import ActivityContent from './ActivityContent.vue';
-import PolicyContent from './PolicyContent.vue';
+import ServiceContent from '~/components/UI/Dialog/ServiceContent.vue';
+import DonateContent from '~/components/UI/Dialog/DonateContent.vue';
+import ActivityContent from '~/components/UI/Dialog/ActivityContent.vue';
+import PolicyContent from '~/components/UI/Dialog/PolicyContent.vue';
 import { DIALOG_TITLE } from '~/utils/constant';
 const homeStore = useHomeStore()
 const isActive = computed(() => { return homeStore.activeDialog.type !== Dialog.NULL })

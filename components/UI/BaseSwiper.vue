@@ -20,7 +20,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import { Pagination } from 'swiper/modules'
 import { POLICY } from '~/utils/constant'
-import BaseButton from './BaseButton.vue'
+import BaseButton from '~/components/UI/BaseButton.vue';
 import { useHomeStore } from '~/stores/home'
 
 export default {
