@@ -43,7 +43,8 @@ export default defineNuxtConfig({
         {rel:'icon',type:'image/x-icon',href:'/assets/image/logo.svg'}
       ]
     },
-    baseURL: '/campaign-website/'
+    baseURL: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/campaign-website/' : '/',
+    buildAssetsDir: '/static/'
   },
   components: true,
   // imports: {
