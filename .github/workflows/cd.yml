@@ -1,39 +1,39 @@
-# name: Deploy to GitHub pages
+name: Deploy to GitHub pages
 
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-#     strategy:
-#       matrix:
-#         node-version: [18.x]
+    strategy:
+      matrix:
+        node-version: [18.x]
 
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-#       - name: Set up Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: ${{ matrix.node-version }}
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
 
-#       - name: Install dependencies
-#         run: npm install
+      - name: Install dependencies
+        run: npm install
 
-#       - name: Build
-#         run: npm run build:gh-pages
+      - name: Build
+        run: npm run build:gh-pages
 
-#       - name: Generate
-#         run: npm run generate:gh-pages
+      - name: Generate
+        run: npm run generate:gh-pages
 
-#       - name: Deploy
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.DEPOLY_SECRET }}
-#           publish_dir: ./dist
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.DEPOLY_SECRET }}
+          publish_dir: ./dist
