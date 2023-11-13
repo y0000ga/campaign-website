@@ -1,5 +1,5 @@
 <template>
-  <v-btn variant="tonal" plain :class="['baseButton', 'rounded-pill', 'pa-0', props.fullWidth ? 'w-100' : '']">
+  <v-btn variant="flat" plain :class="['baseButton', 'rounded-pill', 'pa-0', props.fullWidth ? 'w-100' : '']">
     <p
       :class="[props.fullWidth ? '':'text-h6', 'my-5', 'ml-6', props.icon ? 'mr-2' : 'mr-6', props.theme === 'primary' ? 'text-white' : 'text-text-primary']" :style="{'fontWeight': props.fullWidth ? '600':''}">
       {{
@@ -38,6 +38,9 @@ const color = computed(() => props.theme === 'primary' ? "#DA7D4A" : props.theme
 </script>
 
 <style scoped lang="scss">
+.v-btn--variant-tonal .v-btn__underlay{
+  background: white
+}
 .v-btn.baseButton {
   width: fit-content;
   height: fit-content;
@@ -47,4 +50,5 @@ const color = computed(() => props.theme === 'primary' ? "#DA7D4A" : props.theme
     background: none;
   }
 }
+
 </style>

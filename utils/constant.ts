@@ -23,7 +23,7 @@ export const LEGISLATOR = {
 }
 
 export const NAV = [{
-  title: "立翰主張", route: "/about", icon: nav_about, activeIcon: nav_active_about
+  title: "競選主張", route: "/about", icon: nav_about, activeIcon: nav_active_about
 }, {
   title: "最新活動", route: "/activity", icon: nav_activity, activeIcon: nav_active_activity
 }, {
@@ -38,7 +38,7 @@ export const DIALOG_TITLE = {
   [Dialog.POLICY]: "政策議題",
   [Dialog.ACTIVITY]: "最新活動",
   [Dialog.DONATE]: "小額捐款",
-  [Dialog.SERVICE]:"服務信箱"
+  [Dialog.SERVICE]:"民眾信箱"
   }
 
 export const SOCIAL = [{
@@ -51,6 +51,9 @@ export const SOCIAL = [{
 }, {
   color: "primary",
   icon: "youtube"
+  }, {
+  color: 'primary',
+  icon:'twitter'
 }]
 
 export const PROMOTION = ["為喵星人，護台灣！", "從喵的眼中，看見台灣！", "喵的未來，人的希望！"]

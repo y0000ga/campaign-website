@@ -1,16 +1,16 @@
 import { defineStore } from 'pinia'
 
 export enum Dialog {
-  DONATE,
-  SERVICE,
-  POLICY,
-  ACTIVITY,
-  NULL
+  DONATE = 'DONATE',
+  SERVICE = 'SERVICE',
+  POLICY = 'POLICY',
+  ACTIVITY = 'ACTIVITY',
+  NULL = 'NULL'
 }
 
 export const useHomeStore = defineStore('home', () => {
-  const activeDialog: {type: Dialog, id?: string} = reactive({type:Dialog.DONATE})
-  const handleActiveDialog = (type: Dialog,id?:string) => {
+  const activeDialog: { type: Dialog, id?: string } = reactive({ type: Dialog.POLICY, id: 'policy_1' })
+  const handleActiveDialog = (type: Dialog, id?: string) => {
     activeDialog.type = type
     if (!id) {
       activeDialog.id = undefined
@@ -19,5 +19,5 @@ export const useHomeStore = defineStore('home', () => {
     }
   }
 
-  return {activeDialog,handleActiveDialog}
+  return { activeDialog, handleActiveDialog }
 })

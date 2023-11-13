@@ -1,15 +1,15 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="isActive" :width="props.isDesktop ? '95%' : undefined" style="max-width: 1440px"
+    <v-dialog scrollable v-model="isActive" :width="props.isDesktop ? '95%' : undefined" style="max-width: 1440px"
       :fullscreen="props.isDesktop ? false : true" :scrim="props.isDesktop ? true : false"
-      @close="homeStore.handleActiveDialog(Dialog.NULL)" :attach="true">
-      <v-card class="rounded-xl pa-4" style="height:836px">
+      @close="homeStore.handleActiveDialog(Dialog.NULL)" :attach="true" transition="dialog-bottom-transition">
+      <v-card class="rounded-xl pa-4" style="height:95%;box-shadow: none;">
         <v-card-title class="d-flex align-center justify-space-between pa-0">
           <h4 class="text-h5" style="font-weight: 700;">{{ title }}</h4><v-icon
             @click="homeStore.handleActiveDialog(Dialog.NULL)" icon="mdi-close-circle"
             :style="{ 'font-size': props.isDesktop ? '32px' : '24px' }"></v-icon>
         </v-card-title>
-        <v-card-text :class="['pa-0', props.isDesktop ? 'mt-6' : 'mt-2']">
+        <v-card-text :class="['pa-0', props.isDesktop ? 'mt-4' : 'mt-2']">
           <service-content :isDesktop="props.isDesktop"
             v-if="homeStore.activeDialog.type === Dialog.SERVICE"></service-content>
           <donate-content :isDesktop="props.isDesktop"

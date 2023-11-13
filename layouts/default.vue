@@ -11,7 +11,7 @@
           </NuxtLink>
           <top-nav></top-nav>
           <div class="d-flex"><v-btn class="rounded-pill px-0 actions" style="height:60px;width: 48px" variant="text"
-              v-for="item in SOCIAL"><v-icon style="font-size:28px" :color="item.color" :icon="'mdi-' + item.icon"
+              v-for="item in SOCIAL.slice(0,3)"><v-icon style="font-size:28px" :color="item.color" :icon="'mdi-' + item.icon"
                 :class="item.class || ''"></v-icon></v-btn>
           </div>
         </div>

@@ -47,7 +47,7 @@ export default defineNuxtConfig({
     buildAssetsDir: '/static/'
   },
   components: true,
-  // imports: {
-  //   dirs: ['stores']
-  // }
+  imports: {
+    dirs: ['stores']
+  }
 })

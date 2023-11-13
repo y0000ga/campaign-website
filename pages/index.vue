@@ -74,6 +74,10 @@ const homeStore = useHomeStore()
 
 const isDesktop = ref(true)
 
+watch(() => [homeStore.activeDialog], () => {
+  console.log(homeStore.activeDialog)
+})
+
 
 onMounted(() => {
   isDesktop.value = window.innerWidth > 1200

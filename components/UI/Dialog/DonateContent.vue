@@ -26,7 +26,7 @@
           :style="{ 'min-width': props.isDesktop ? 'fit-content' : '' }">{{ plan.title }}
         </h5>
         <v-input v-if="plan.id === 'd4'" class="bg-gray-1 rounded-lg mt-2 py-4 pl-4 pr-3" :hide-details="true"><template
-            v-slot:prepend>NT$</template><input type="number" min="1" class="w-100" style="border:none"
+            v-slot:prepend>NT$</template><input placeholder="輸入金額" type="number" min="1" class="w-100" style="border:none"
             oninput="validity.valid||(value='');" :hide-details="true" v-model="customMoney" /></v-input>
         <div v-else :class="['pa-0', 'd-flex', props.isDesktop ? '' : 'mt-2', 'ga-4']">
           <v-row :class="['ma-0', ' pa-0', ' align-center ']">

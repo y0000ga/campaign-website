@@ -6,7 +6,7 @@
         <h3 class="text-h3 text-primary">{{ LEGISLATOR.name }} {{ LEGISLATOR.englishName }}</h3>
       </div>
       <div class="d-flex ga-4"><v-btn class="rounded-pill px-0 bg-white" style="height:48px;min-width:48px" variant="text"
-          v-for="item in SOCIAL"><v-icon style="font-size:28px" :color="item.color" :icon="'mdi-' + item.icon"
+          v-for="item in SOCIAL.slice(0,3)"><v-icon style="font-size:28px" :color="item.color" :icon="'mdi-' + item.icon"
             :class="item.class || ''"></v-icon></v-btn>
       </div>
       <p class="text-caption">© 2023 喵立翰 Miao Li-Han 版權所有</p>
