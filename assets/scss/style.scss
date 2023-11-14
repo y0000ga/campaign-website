@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+TC:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
-
 @font-face {
   font-family: 'mantou-sans';
   src: url('/assets/fonts/MantouSans-Regular.ttf') format('truetype');
@@ -174,7 +173,7 @@ position:absolute,
   }
 
   .cursor-pointer{
-    cursor: pointer;
+    cursor: url('~/assets/image/cursor.svg'),auto;
     &:hover{
       background: linear-gradient(90deg, #E6793B 1.54%, #FF4185 97.86%);
       background: -webkit-linear-gradient(90deg, #E6793B 1.54%, #FF4185 97.86%);

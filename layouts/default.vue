@@ -3,8 +3,7 @@
     <div>
       <v-app-bar :elevation="0" class="py-4 px-6 mr-4" style="background-color: transparent">
         <div class="w-100 d-flex justify-space-between align-center py-4 px-6 rounded-xl"
-          style="background: rgba(255, 255, 255, 0.8)">
-
+          style="background: rgba(255, 255, 255, 0.8);cursor: pointer;">
           <NuxtLink to="/" class="d-flex align-center">
             <v-img class="mr-2" :width="52" :height="43" :src="logo"></v-img>
             <h4 class="text-h4 text-primary">{{ LEGISLATOR.name }} {{ LEGISLATOR.englishName }}</h4>
@@ -18,6 +17,7 @@
       </v-app-bar>
       <v-container fluid class="main">
         <slot />
+        <base-footer></base-footer>
       </v-container>
       <bottom-nav></bottom-nav>
     </div>
@@ -29,6 +29,7 @@ import { LEGISLATOR, SOCIAL } from '@/utils/constant'
 import logo from '@/assets/image/logo.svg'
 import TopNav from '~/layouts/Nav/TopNav.vue';
 import BottomNav from '~/layouts/Nav/BottomNav.vue';
+import BaseFooter from './BaseFooter.vue';
 </script>
 <style scoped lang="scss">
 .main {

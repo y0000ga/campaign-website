@@ -49,7 +49,6 @@
         :imgSrc="item.imgSrc" :button="item.button"></base-action-card>
     </v-container>
     <bottom-intro></bottom-intro>
-<base-footer></base-footer>
 <base-dialog :isDesktop="isDesktop"></base-dialog>
   </div>
 </template>
@@ -65,7 +64,6 @@ import TopIntro from '~/components/Home/Intro/TopIntro.vue'
 import MainTitle from '~/components/UI/MainTitle.vue';
 import BaseSwiper from '~/components/UI/BaseSwiper.vue';
 import BaseActionCard from '~/components/UI/BaseActionCard.vue';
-import BaseFooter from '~/layouts/BaseFooter.vue';
 import BottomIntro from '~/components/Home/Intro/BottomIntro.vue';
 import BaseDialog from '~/components/UI/Dialog/BaseDialog.vue';
 import { useHomeStore } from '~/stores/home';

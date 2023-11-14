@@ -61,5 +61,8 @@ import { LEGISLATOR } from '~/utils/constant';
       max-width: 100%;
     }
   }
+  .v-application .px-26{
+    padding:104px 0px 172px 0px
+  }
 }
 </style>

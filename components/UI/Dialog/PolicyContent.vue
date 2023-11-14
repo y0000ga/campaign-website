@@ -1,7 +1,7 @@
 <template>
-  <div :class="['d-flex', props.isDesktop ? 'flex-row' : 'flex-column', 'ga-8']">
-    <div :class="['d-flex', 'flex-column', 'text-text-primary', 'text-body-1']"
-      :style="{ width: props.isDesktop ? '40%' : '' }"><img :src="policies.main?.imgSrc" class="rounded-lg"
+  <div :class="['d-flex', props.isDesktop ? 'flex-row' : 'flex-column', 'ga-8','h-100']" >
+    <div :class="['d-flex', 'flex-column', 'text-text-primary', 'text-body-1','h-100']"
+      :style="{ width: props.isDesktop ? '40%' : '',position: props.isDesktop ? 'sticky':undefined,top:'0px'}"><img :src="policies.main?.imgSrc" class="rounded-lg"
         :style="{ 'width': '100%', 'aspect-ratio': '507/400' }" />
       <p :class="['mt-4', 'mb-2', props.isDesktop ? 'text-caption' : 'text-body-1']">{{ policies.main?.title.join("") }}
       </p>
@@ -11,8 +11,8 @@
             :class="item.class || ''"></v-icon></v-btn>
       </div>
     </div>
-    <div :style="{ width: props.isDesktop ? '60%' : '' }">
-      <div>
+    <div :style="{ width: props.isDesktop ? '60%' : '' }" >
+
         <h4 class="text-primary text-h4 mb-10">{{ policies.main?.title.join("") }}</h4>
         <div v-for="item in policies.main?.list" class="mb-6">
           <h5 class="text-h5 mb-2">{{ item.title }}</h5>
@@ -24,11 +24,10 @@
               v-for="policy in policies.other">
               <img :src="policy.imgSrc" class="rounded-lg w-100"
                 :style="{ height: props.isDesktop ? '134px' : undefined, objectFit: props.isDesktop ? 'cover' : undefined }" />
-              <p class="text-body-1 mt-3 text-text-primary">{{ policy.title.join("") }}</p>
+              <p class="text-body-1 mt-3 text-text-primary cursor-pointer" @click="handleSelectItem(policy.id)" >{{ policy.title.join("") }}</p>
             </v-card>
           </div>
         </v-card>
-      </div>
     </div>
   </div>
 </template>
@@ -46,4 +45,10 @@ const props = defineProps({
 const policies = computed(() => {
   return { main: POLICY.find(policy => policy.id === homeStore.activeDialog.id), other: POLICY.filter(policy => policy.id !== homeStore.activeDialog.id) }
 })
+
+const handleSelectItem = (id:string) => {
+  homeStore.handleActiveDialog(Dialog.POLICY, id)
+}
+
+
 </script>

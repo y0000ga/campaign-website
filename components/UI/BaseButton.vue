@@ -1,7 +1,7 @@
 <template>
   <v-btn variant="flat" plain :class="['baseButton', 'rounded-pill', 'pa-0', props.fullWidth ? 'w-100' : '']">
-    <p
-      :class="[props.fullWidth ? '':'text-h6', 'my-5', 'ml-6', props.icon ? 'mr-2' : 'mr-6', props.theme === 'primary' ? 'text-white' : 'text-text-primary']" :style="{'fontWeight': props.fullWidth ? '600':''}">
+    <p :class="[props.fullWidth ? '' : 'text-h6', 'my-5', 'ml-6', props.icon ? 'mr-2' : 'mr-6', props.theme === 'primary' ? 'text-white' : 'text-text-primary']"
+      :style="{ 'fontWeight': props.fullWidth ? '600' : '' }">
       {{
         props.title }}</p>
     <v-icon v-if="props.icon" :icon="props.icon"
@@ -38,17 +38,19 @@ const color = computed(() => props.theme === 'primary' ? "#DA7D4A" : props.theme
 </script>
 
 <style scoped lang="scss">
-.v-btn--variant-tonal .v-btn__underlay{
-  background: white
+.v-btn--variant-tonal .v-btn__underlay {
+  background: white;
+
 }
+
 .v-btn.baseButton {
   width: fit-content;
   height: fit-content;
   background-color: v-bind(color) !important;
+  cursor: url('~/assets/image/cursor.svg'), auto;
 
   .v-btn__underlay {
     background: none;
   }
 }
-
 </style>

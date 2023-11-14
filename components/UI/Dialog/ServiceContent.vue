@@ -35,7 +35,7 @@
 
       <base-button title="送出意見" theme="primary" :fullWidth="true" :disabled="false" @click="handleMail"></base-button>
     </v-col>
-    <v-col v-else class="d-flex flex-column align-center h-100 justify-center ga-8">
+    <v-col v-else :class="['d-flex' ,'flex-column' ,'align-center', props.isDesktop? '': 'h-100', 'justify-center', 'ga-8']">
       <h3 class="text-h3">感謝您的意見</h3><v-img :src="donate_finish" :width="187"
         style="max-height:166px"></v-img><base-button style="width: 187px" title="關閉" theme="gray"
         @click="homeStore.handleActiveDialog(Dialog.NULL)"></base-button>
