@@ -1,7 +1,3 @@
 {
-  "cSpell.words": [
-    "Nuxt",
-    "vuetify"
-  ],
   "typescript.tsdk": "node_modules/typescript/lib"
 }

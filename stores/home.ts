@@ -9,7 +9,8 @@ export enum Dialog {
 }
 
 export const useHomeStore = defineStore('home', () => {
-  const activeDialog: { type: Dialog, id?: string } = reactive({ type: Dialog.NULL})
+  const activeDialog: { type: Dialog, id?: string } = reactive({ type: Dialog.NULL })
+
   const handleActiveDialog = (type: Dialog, id?: string) => {
     activeDialog.type = type
     if (!id) {

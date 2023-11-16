@@ -1,23 +1,16 @@
 <template>
   <div class="d-flex flex-column align-center">
     <v-chip class="text-h6 text-white bg-text-primary">{{ props.englishTitle }}</v-chip>
-    <h1 class="styled-gradient text-mantou title">{{ props.title }}</h1>
+    <h1 class="font-weight-regular styled-gradient text-mantou">{{ props.title }}</h1>
   </div>
- 
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  englishTitle: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String,
-    required: true
-  }
-})
-
+interface Props {
+  englishTitle: string,
+  title: string
+}
+const props = defineProps<Props>()
 </script>
 
 <style scoped lang="scss">
@@ -27,14 +20,13 @@ const props = defineProps({
   border-radius: 8px;
 }
 
-.title {
+h1 {
   font-size: 64px;
-  font-weight: 400;
 }
 
-@media(max-width: 768px){
-  .title {
-  font-size: 52px;
-}
+@media(max-width: 768px) {
+  h1 {
+    font-size: 52px;
+  }
 }
 </style>

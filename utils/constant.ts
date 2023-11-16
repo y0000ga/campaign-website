@@ -6,32 +6,29 @@ import learn from '~/assets/image/policy-learn.svg'
 import medical from '~/assets/image/policy-medical.svg'
 import donate from '~/assets/image/donate.svg'
 import mail from '~/assets/image/mail.svg'
-import nav_about from '~/assets/image/icon/nav/about.svg'
-import nav_activity from '~/assets/image/icon/nav/activity.svg'
-import nav_donate from '~/assets/image/icon/nav/donate.svg'
-import nav_service from '~/assets/image/icon/nav/service.svg'
-import nav_policy from '~/assets/image/icon/nav/policy.svg'
-import nav_active_about from '~/assets/image/icon/nav/active/about.svg'
-import nav_active_activity from '~/assets/image/icon/nav/active/activity.svg'
-import nav_active_donate from '~/assets/image/icon/nav/active/donate.svg'
-import nav_active_service from '~/assets/image/icon/nav/active/service.svg'
-import nav_active_policy from '~/assets/image/icon/nav/active/policy.svg'
+import nav_about from '~/assets/image/icon/about.svg'
+import nav_activity from '~/assets/image/icon/activity.svg'
+import nav_donate from '~/assets/image/icon/donate.svg'
+import nav_service from '~/assets/image/icon/service.svg'
+import nav_policy from '~/assets/image/icon/policy.svg'
 
 export const LEGISLATOR = {
   name: "喵立翰",
   englishName: "Miao Li-Han"
 }
 
+export const SLOGAN = ['台灣的明天', '喵先鋪路']
+
 export const NAV = [{
-  title: "競選主張", route: "/about", icon: nav_about, activeIcon: nav_active_about
+  title: "競選主張",block:'advocate', route: "/about", icon: nav_about
 }, {
-  title: "最新活動", route: "/activity", icon: nav_activity, activeIcon: nav_active_activity
+  title: "最新活動",block:'activity', route: "/activity", icon: nav_activity
 }, {
-  title: "政策議題", route: "/policy", icon: nav_policy, activeIcon: nav_active_policy
+  title: "政策議題",block:'policy', route: "/policy",  icon: nav_policy
 }, {
-  title: "小額捐款", route: "/donate", icon: nav_donate, activeIcon: nav_active_donate
+  title: "小額捐款", block: 'donate', route: "/donate", icon: nav_donate
 }, {
-  title: "服務信箱", route: "/service", icon: nav_service, activeIcon: nav_active_service
+  title: "服務信箱", block: 'mail', route: "/service",  icon: nav_service
 }]
 
 export const DIALOG_TITLE = {
@@ -89,7 +86,7 @@ export const POLICY = [
 ]
 
 export const ACTION = [
-  { id: Dialog.DONATE, title: "小額支持喵喵", content: "您的小筆捐款，是每隻毛孩未來的大大動力！", button: "小額捐款", imgSrc: donate }, { id: Dialog.SERVICE, title: "民眾服務信箱", content: "親愛的鄉親，每一位市民的意見都是我們社區前進的原動力", button: "填寫表單", imgSrc: mail }
+  { block:'donate',id: Dialog.DONATE, title: "小額支持喵喵", content: "您的小筆捐款，是每隻毛孩未來的大大動力！", button: "小額捐款", imgSrc: donate }, { block:'mail',id: Dialog.SERVICE, title: "民眾服務信箱", content: "親愛的鄉親，每一位市民的意見都是我們社區前進的原動力", button: "填寫表單", imgSrc: mail }
 ]
 
 export const DONATE_PLAN = [

@@ -1,9 +1,9 @@
 <template>
   <template>
     <div>
-      <v-app-bar :elevation="0" class="py-4 px-6 mr-4" style="background-color: transparent">
-        <div class="w-100 d-flex justify-space-between align-center py-4 px-6 rounded-xl"
-          style="background: rgba(255, 255, 255, 0.8);cursor: pointer;">
+      <v-app-bar :elevation="0" class="py-4 px-3" style="background-color: transparent">
+        <div class="w-100 d-flex justify-space-between align-center py-2 px-3 rounded-xl"
+          style="background: rgba(255, 255, 255, 0.8);cursor: pointer">
           <NuxtLink to="/" class="d-flex align-center">
             <v-img class="mr-2" :width="52" :height="43" :src="logo"></v-img>
             <h4 class="text-h4 text-primary">{{ LEGISLATOR.name }} {{ LEGISLATOR.englishName }}</h4>
@@ -15,7 +15,7 @@
           </div>
         </div>
       </v-app-bar>
-      <v-container fluid class="main">
+      <v-container fluid class="main pa-0">
         <slot />
         <base-footer></base-footer>
       </v-container>
@@ -34,7 +34,6 @@ import BaseFooter from './BaseFooter.vue';
 <style scoped lang="scss">
 .main {
   margin-top: 100px;
-  padding: 0px
 }
 
 @media(max-width:600px){

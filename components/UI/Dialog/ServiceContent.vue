@@ -1,21 +1,20 @@
 <template>
-  <v-container
-    :class="['pa-0', 'd-flex', props.isDesktop ? 'flex-row' : 'flex-column', 'h-100', 'w-100', props.isDesktop ? 'ga-2' : 'ga-4']"
+  <v-container :class="['pa-0 d-flex h-100 w-100 ', isDesktop ? 'flex-row ga-2' : 'flex-column ga-4']"
     style="min-width:100%;">
     <div
-      :class="['d-flex', props.isDesktop ? 'flex-column' : 'flex-row', props.isDesktop ? 'align-end' : 'justify-space-between', 'rounded-xl', 'ma-0']"
-      :style="{ 'height': props.isDesktop ? '100%' : '147px', 'width': props.isDesktop ? '60%' : '', backgroundColor: '#E3F8FF', overflow: props.isDesktop ? 'hidden':'' }">
-      <v-col class="pa-0 pl-5 pt-5" :style="{ width: props.isDesktop ? '100%' : 'fit-content' }">
-        <h6 :class="['text-text-primary', props.isDesktop ? 'text-h1' : 'text-h6']"
-          :style="{ 'font-weight': '700', 'line-height': props.isDesktop ? '60px' : '24px' }">
+      :class="['d-flex rounded-xl ma-0', isDesktop ? 'flex-column align-end overflow-hidden' : 'flex-row justify-space-between']"
+      :style="{ 'height': isDesktop ? '100%' : '147px', 'width': isDesktop ? '60%' : '', backgroundColor: '#E3F8FF' }">
+      <v-col class="pa-0 pl-5 pt-5" :style="{ width: isDesktop ? '100%' : 'fit-content' }">
+        <h6 :class="['text-text-primary', isDesktop ? 'text-h1' : 'text-h6', 'font-weight-bold']"
+          :style="{ 'line-height': isDesktop ? '60px' : '24px' }">
           分享您的想法<br />
-          一同將我們的未來<br v-if="!props.isDesktop" />打造更美好！
+          一同將我們的未來<br v-if="!isDesktop" />打造更美好！
         </h6>
       </v-col>
-      <v-img :src="props.isDesktop ? mail_man_desktop : mail_man"
-        :style="{ 'width': props.isDesktop ? '731px' : '195px', 'min-width': props.isDesktop ? '731px' : '195px', 'height': props.isDesktop ? '480px' : '147px', 'max-height': props.isDesktop ? '480px' : '', 'max-width': props.isDesktop ? '100%' : '195px' }"></v-img>
+      <v-img :src="isDesktop ? mail_man_desktop : mail_man"
+        :style="{ 'width': isDesktop ? '731px' : '195px', 'min-width': isDesktop ? '731px' : '195px', 'height': isDesktop ? '480px' : '147px', 'max-height': isDesktop ? '480px' : '', 'max-width': isDesktop ? '100%' : '195px' }"></v-img>
     </div>
-    <v-col class="pa-0" v-if="!isFinished" :style="{ 'max-width': props.isDesktop ? '' : '' }">
+    <v-col class="pa-0" v-if="!isFinished">
       <h5 class="text-h5">您的姓名</h5>
       <v-input class="bg-gray-1 rounded-lg mt-2 mb-6 py-4 pl-4 pr-3" :error-messages="[mail.name.error]"
         :hide-details="mail.name.error ? 'auto' : true"><input v-model="mail.name.value" type="text" placeholder="輸入內容"
@@ -33,9 +32,9 @@
         :hide-details="mail.advice.error ? 'auto' : true"><textarea v-model="mail.advice.value" placeholder="輸入內容"
           class="w-100" style="all:unset" rows="4"></textarea></v-input>
 
-      <base-button title="送出意見" theme="primary" :fullWidth="true" :disabled="false" @click="handleMail"></base-button>
+      <base-button theme="primary" :fullWidth="true" :disabled="false" @click="handleMail">送出意見</base-button>
     </v-col>
-    <v-col v-else :class="['d-flex' ,'flex-column' ,'align-center', props.isDesktop? '': 'h-100', 'justify-center', 'ga-8']">
+    <v-col v-else :class="['d-flex  flex-column align-center justify-center ga-8', isDesktop ? '' : 'h-100']">
       <h3 class="text-h3">感謝您的意見</h3><v-img :src="donate_finish" :width="187"
         style="max-height:166px"></v-img><base-button style="width: 187px" title="關閉" theme="gray"
         @click="homeStore.handleActiveDialog(Dialog.NULL)"></base-button>
@@ -49,6 +48,12 @@ import donate_finish from '~/assets/image/donate_finish.svg'
 import { useHomeStore, Dialog } from '~/stores/home';
 import mail_man from '~/assets/image/mail_man.svg'
 import mail_man_desktop from '~/assets/image/mail_man_desktop.svg'
+import { useResponsive, Device } from '~/utils/hooks/useResponsive';
+
+const homeStore = useHomeStore()
+const isFinished = ref(false)
+const { device } = useResponsive()
+const isDesktop = computed(() => device.value === Device.Desktop)
 
 type TMail = {
   advice: string,
@@ -56,15 +61,6 @@ type TMail = {
   name: string,
   email: string
 }
-
-const homeStore = useHomeStore()
-
-const props = defineProps({
-  isDesktop: {
-    type: Boolean,
-    required: true
-  }
-})
 
 const mail = reactive({
   name: {
@@ -129,16 +125,12 @@ const validation = ({ advice, tel, name, email }: TMail) => {
   }
 }
 
-const isFinished = ref(false)
-
 const handleMail = () => {
   const content = { name: mail.name.value, email: mail.email.value, tel: mail.tel.value, advice: mail.advice.value }
   const isMailValid = validation(content)
-
   if (isMailValid) {
     isFinished.value = true
   }
-
 }
 
 </script>

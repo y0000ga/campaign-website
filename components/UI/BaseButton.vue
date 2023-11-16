@@ -2,36 +2,21 @@
   <v-btn variant="flat" plain :class="['baseButton', 'rounded-pill', 'pa-0', props.fullWidth ? 'w-100' : '']">
     <p :class="[props.fullWidth ? '' : 'text-h6', 'my-5', 'ml-6', props.icon ? 'mr-2' : 'mr-6', props.theme === 'primary' ? 'text-white' : 'text-text-primary']"
       :style="{ 'fontWeight': props.fullWidth ? '600' : '' }">
-      {{
-        props.title }}</p>
+      <slot></slot></p>
     <v-icon v-if="props.icon" :icon="props.icon"
       :class="['mr-4', props.theme === 'primary' ? 'text-white' : 'text-text-primary']" style="font-size: 24px;"></v-icon>
   </v-btn>
 </template>
 
 <script setup lang="ts">
-import type { PropType } from 'vue';
-
 type TTheme = "primary" | "white" | "gray"
+interface Props {
+  icon?: string,
+  theme: TTheme,
+  fullWidth?: boolean
+}
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true
-  },
-  icon: {
-    type: String,
-    required: false
-  },
-  theme: {
-    type: String as PropType<TTheme>,
-    required: true
-  },
-  fullWidth: {
-    type: Boolean,
-    required: false
-  }
-})
+const props = defineProps<Props>()
 
 const color = computed(() => props.theme === 'primary' ? "#DA7D4A" : props.theme === "gray" ? "#F1F5F9" : "#ffffff"
 )

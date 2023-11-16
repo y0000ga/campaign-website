@@ -1,33 +1,33 @@
 <template>
-  <v-col :class="['rounded-xl', 'actionCard', props.id === Dialog.DONATE ? 'bg-primary' : 'bg-text-primary']">
+  <v-col :id="props.block"
+    :class="['rounded-xl', 'actionCard', props.dialogId === Dialog.DONATE ? 'bg-primary' : 'bg-text-primary']">
     <p class="text-mantou title">{{ props.title }}</p>
     <p style="font-size: 20px;" class="pt-4 pb-6">{{ props.content }}</p>
     <v-row class="d-flex align-center justify-space-between" style="height: fit-content">
-      <base-button
-        :title="props.button" icon="mdi-arrow-right" theme="white" @click="activateDialog"></base-button>
-        
-        
-        <v-img :src="props.imgSrc"
-        :style="{ 'max-width': props.id === Dialog.DONATE ? '224px' : '256px', aspectRatio: '1/1' }" /></v-row>
+      <base-button icon="mdi-arrow-right" theme="white" @click="activateDialog">{{ props.button }}</base-button>
+      <v-img :src="props.imgSrc"
+        :style="{ 'max-width': props.dialogId === Dialog.DONATE ? '224px' : '256px', aspectRatio: '1/1' }" /></v-row>
   </v-col>
 </template>
 
 <script setup lang="ts">
 import BaseButton from '~/components/UI/BaseButton.vue';
 import { useHomeStore, Dialog } from '~/stores/home';
-const homeStore = useHomeStore()
-const props = defineProps({
-  id: { type: String as unknown as PropType<Dialog>, required: true },
-  title: { type: String, required: true },
-  content: { type: String, required: true },
-  imgSrc: { type: String, required: true },
-  button: { type: String, required: true }
 
-})
+interface Props {
+  dialogId: Dialog,
+  title: string,
+  content: string,
+  imgSrc: string,
+  button: string,
+  block: string
+}
+
+const homeStore = useHomeStore()
+const props = defineProps<Props>()
 
 const activateDialog = () => {
-  console.log(props.id)
-  homeStore.handleActiveDialog(props.id)
+  homeStore.handleActiveDialog(props.dialogId)
 }
 
 </script>
