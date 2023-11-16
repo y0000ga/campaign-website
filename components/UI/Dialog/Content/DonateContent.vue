@@ -1,8 +1,7 @@
 <template>
-  <v-container :class="['pa-0 d-flex h-100 w-100 ', isDesktop ? 'ga-4 flex-row' : 'ga-2 flex-column']"
-    style="min-width:100%;">
+  <action-container>
     <div
-      :class="['d-flex', isDesktop ? 'flex-column' : 'flex-row', 'justify-space-between', 'align-center', 'bg-background-secondary', 'rounded-xl', 'pa-4', 'ma-0']"
+      :class="['d-flex justify-space-between align-center bg-background-secondary rounded-xl pa-4 ma-0', isDesktop ? 'flex-column' : 'flex-row']"
       :style="{ ...isDesktop ? { width: '60%' } : { height: '163px' } }">
       <v-col class="pa-0" :style="{ width: isDesktop ? '100%' : 'fit-content' }">
         <h6 :class="['text-primary font-weight-bold', isDesktop ? 'text-h1' : 'text-h6']"
@@ -39,12 +38,8 @@
       <base-button theme="primary" :fullWidth="true" :disabled="selectedPlan.id && selectedPlan.amount ? false : true"
         @click="handleDonate">前往捐款</base-button>
     </v-col>
-    <v-col v-else class="d-flex flex-column align-center h-100 justify-center ga-8 ">
-      <h3 class="text-h3">感謝您的捐款</h3><v-img :src="donate_finish" :width="187"
-        style="max-height:166px"></v-img><base-button style="width: 187px" theme="gray"
-        @click="handleClose">關閉</base-button>
-    </v-col>
-  </v-container>
+    <thank-block v-else>感謝捐款</thank-block>
+  </action-container>
 </template>
 
 <script lang="ts" setup>
@@ -52,13 +47,12 @@ import donate from '~/assets/image/donate.svg'
 import BaseButton from '~/components/UI/BaseButton.vue';
 import { moneyTrans } from '~/utils/helper';
 import { DONATE_PLAN } from '~/utils/constant'
-import donate_finish from '~/assets/image/donate_finish.svg'
-import { useHomeStore, Dialog } from '~/stores/home';
+import ThankBlock from '~/components/UI/Dialog/ThankBlock.vue'
 import { useResponsive, Device } from '~/utils/hooks/useResponsive';
+import ActionContainer from '~/components/UI/Dialog/ActionContainer.vue';
 
 const { device } = useResponsive()
 const isDesktop = computed(() => device.value === Device.Desktop)
-const homeStore = useHomeStore()
 const selectedPlan = reactive({ id: "", title: "", amount: 0, count: 0 })
 const customMoney = ref(null)
 const isDonated = ref(false)
@@ -76,23 +70,16 @@ const handleSelectPlan = (planId: string) => {
     selectedPlan.title = '自訂贊助金額'
   }
 }
-
 const handleDonate = () => {
   if (selectedPlan.id && selectedPlan.amount) {
     isDonated.value = true
   }
 }
-
-const handleClose = () => {
-  homeStore.handleActiveDialog(Dialog.NULL)
-}
-
 watch(() => [selectedPlan.id, customMoney.value], () => {
   if (selectedPlan.id === 'd4' && customMoney.value !== null) {
     selectedPlan.amount = customMoney.value
   }
 })
-
 </script>
 
 <style scoped lang="scss">

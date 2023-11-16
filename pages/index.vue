@@ -45,7 +45,7 @@
     </v-container>
     <v-container class="flex-center flex-column px-26 bg-background-secondary max-w-full" id="policy"><main-title
         english-title="POLICY ISSUES" title="政策議題"></main-title><base-swiper></base-swiper></v-container>
-    <v-container class="d-flex justify-center px-26 ga-6  mainBlock actions">
+    <v-container class="d-flex justify-center px-26 ga-6 mainBlock actions">
       <base-action-card :block="item.block" :dialog-id="item.id" v-for="item in ACTION" :title="item.title"
         :content="item.content" :imgSrc="item.imgSrc" :button="item.button" :class="item.block"></base-action-card>
     </v-container>

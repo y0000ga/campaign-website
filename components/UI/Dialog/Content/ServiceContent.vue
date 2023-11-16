@@ -1,9 +1,8 @@
 <template>
-  <v-container :class="['pa-0 d-flex h-100 w-100 ', isDesktop ? 'flex-row ga-2' : 'flex-column ga-4']"
-    style="min-width:100%;">
+  <action-container>
     <div
       :class="['d-flex rounded-xl ma-0', isDesktop ? 'flex-column align-end overflow-hidden' : 'flex-row justify-space-between']"
-      :style="{ 'height': isDesktop ? '100%' : '147px', 'width': isDesktop ? '60%' : '', backgroundColor: '#E3F8FF' }">
+      :style="{ 'height': isDesktop ? '100%' : '147px', 'width': isDesktop ? '60%' : undefined, backgroundColor: '#E3F8FF' }">
       <v-col class="pa-0 pl-5 pt-5" :style="{ width: isDesktop ? '100%' : 'fit-content' }">
         <h6 :class="['text-text-primary', isDesktop ? 'text-h1' : 'text-h6', 'font-weight-bold']"
           :style="{ 'line-height': isDesktop ? '60px' : '24px' }">
@@ -16,41 +15,42 @@
     </div>
     <v-col class="pa-0" v-if="!isFinished">
       <h5 class="text-h5">您的姓名</h5>
-      <v-input class="bg-gray-1 rounded-lg mt-2 mb-6 py-4 pl-4 pr-3" :error-messages="[mail.name.error]"
+      <v-input :class="inputClass" :error-messages="[mail.name.error]"
         :hide-details="mail.name.error ? 'auto' : true"><input v-model="mail.name.value" type="text" placeholder="輸入內容"
           class="w-100" style="border:none" /></v-input>
       <h5 class="text-h5">Email</h5>
-      <v-input class="bg-gray-1 rounded-lg mt-2 mb-6 py-4 pl-4 pr-3" :error-messages="[mail.email.error]"
+      <v-input :class="inputClass" :error-messages="[mail.email.error]"
         :hide-details="mail.email.error ? 'auto' : true"><input v-model="mail.email.value" type='email'
           placeholder="email" class="w-100" style="border:none" /></v-input>
       <h5 class="text-h5">手機</h5>
-      <v-input class="bg-gray-1 rounded-lg mt-2 mb-6 py-4 pl-4 pr-3" :error-messages="[mail.tel.error]"
+      <v-input :class="inputClass" :error-messages="[mail.tel.error]"
         :hide-details="mail.tel.error ? 'auto' : true"><input v-model="mail.tel.value" type="tel" placeholder="手機號碼"
           class="w-100" style="border:none" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" /></v-input>
       <h5 class="text-h5">您的建言</h5>
-      <v-input class="bg-gray-1 rounded-lg mt-2 mb-6 py-4 pl-4 pr-3" :error-messages="[mail.advice.error]"
+      <v-input :class="inputClass" :error-messages="[mail.advice.error]"
         :hide-details="mail.advice.error ? 'auto' : true"><textarea v-model="mail.advice.value" placeholder="輸入內容"
           class="w-100" style="all:unset" rows="4"></textarea></v-input>
-
       <base-button theme="primary" :fullWidth="true" :disabled="false" @click="handleMail">送出意見</base-button>
     </v-col>
-    <v-col v-else :class="['d-flex  flex-column align-center justify-center ga-8', isDesktop ? '' : 'h-100']">
-      <h3 class="text-h3">感謝您的意見</h3><v-img :src="donate_finish" :width="187"
-        style="max-height:166px"></v-img><base-button style="width: 187px" title="關閉" theme="gray"
-        @click="homeStore.handleActiveDialog(Dialog.NULL)"></base-button>
-    </v-col>
-  </v-container>
+    <thank-block v-else>感謝建議</thank-block>
+  </action-container>
 </template>
 
 <script lang="ts" setup>
 import BaseButton from '~/components/UI/BaseButton.vue';
-import donate_finish from '~/assets/image/donate_finish.svg'
-import { useHomeStore, Dialog } from '~/stores/home';
 import mail_man from '~/assets/image/mail_man.svg'
 import mail_man_desktop from '~/assets/image/mail_man_desktop.svg'
 import { useResponsive, Device } from '~/utils/hooks/useResponsive';
+import ThankBlock from '~/components/UI/Dialog/ThankBlock.vue'
+import ActionContainer from '~/components/UI/Dialog/ActionContainer.vue';
 
-const homeStore = useHomeStore()
+const initInput = {
+  value: "",
+  error: ""
+}
+
+const inputClass = "bg-gray-1 rounded-lg mt-2 mb-6 py-4 pl-4 pr-3"
+
 const isFinished = ref(false)
 const { device } = useResponsive()
 const isDesktop = computed(() => device.value === Device.Desktop)
@@ -63,22 +63,10 @@ type TMail = {
 }
 
 const mail = reactive({
-  name: {
-    value: "",
-    error: ""
-  },
-  email: {
-    value: "",
-    error: ""
-  },
-  tel: {
-    value: "",
-    error: ""
-  },
-  advice: {
-    value: "",
-    error: ""
-  },
+  name: initInput,
+  email: initInput,
+  tel: initInput,
+  advice: initInput,
 })
 
 const validation = ({ advice, tel, name, email }: TMail) => {
@@ -136,11 +124,6 @@ const handleMail = () => {
 </script>
 
 <style scoped lang="scss">
-.plan {
-  border: 2px solid #E2E8F0;
-  border-radius: 16px;
-}
-
 input {
   all: unset;
 }

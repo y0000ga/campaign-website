@@ -26,10 +26,10 @@
 
 <script lang="ts" setup>
 import { useHomeStore } from '~/stores/home';
-import ServiceContent from '~/components/UI/Dialog/ServiceContent.vue';
-import DonateContent from '~/components/UI/Dialog/DonateContent.vue';
-import ActivityContent from '~/components/UI/Dialog/ActivityContent.vue';
-import PolicyContent from '~/components/UI/Dialog/PolicyContent.vue';
+import ServiceContent from '~/components/UI/Dialog/Content/ServiceContent.vue';
+import DonateContent from '~/components/UI/Dialog/Content/DonateContent.vue';
+import ActivityContent from '~/components/UI/Dialog/Content/ActivityContent.vue';
+import PolicyContent from '~/components/UI/Dialog/Content/PolicyContent.vue';
 import { DIALOG_TITLE } from '~/utils/constant';
 import { useResponsive, Device } from '~/utils/hooks/useResponsive'
 
