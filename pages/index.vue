@@ -8,7 +8,7 @@
       </v-row>
     </v-container>
     <marquee>{{ PROMOTION.join('') }}</marquee>
-    <v-container class="max-w-full bg-background-secondary d-flex justify-center" id="advocate">
+    <v-container :class="fullContainerClass" id="advocate">
       <v-card class="rounded-xl d-flex shadow-md about" variant="elevated">
         <v-container class="w-50 d-flex align-center flex-column px-10 justify-center">
           <main-title english-title="ADVOCATE" :title="ADVOCATE"></main-title>
@@ -22,30 +22,18 @@
     <v-container class="flex-center flex-column mainBlock" id="activity"><main-title english-title="LATEST EVENTS"
         title="最新活動"></main-title>
       <v-card class="d-flex mt-10 ga-6 max-w-primary activity" variant="flat">
-        <v-container class="pa-0"><v-img class="w-100" :src="ACTIVITY[0].imgSrc" /><v-col
-            class="d-flex flex-column mt-4 ga-2 ">
-            <p class="text-caption text-text-secondary">{{ ACTIVITY[0].date }}</p>
-            <p class="text-h5 text-text-primary cursor-pointer" @click="handleActivityDialog(ACTIVITY[0].id)">{{
-              ACTIVITY[0].title }}</p>
-            <p class="text-body-1">{{ ACTIVITY[0].content }}</p>
-          </v-col></v-container>
+        <activity-card type="main" :img-src="ACTIVITY[0].imgSrc" :date="ACTIVITY[0].date" :id="ACTIVITY[0].id"
+          :title="ACTIVITY[0].title" :content="ACTIVITY[0].content"></activity-card>
         <v-container class="pa-0 d-flex flex-column relative ga-7">
-          <v-row class="ma-0 d-flex ga-4 " style="max-height: 134px;" v-for="activity in ACTIVITY">
-            <v-img :src="activity.imgSrc" cover class="subImg rounded-lg" />
-            <v-col class="pa-0 w-50 h-100">
-              <p class="text-caption text-text-secondary">{{ activity.date }}</p>
-              <h6 class="my-2 text-h6 text-text-primary cursor-pointer" @click="handleActivityDialog(activity.id)">{{
-                activity.title }}</h6>
-              <p class="text-body-1 text-text-primary multi overflow-hidden">{{ activity.content }}</p>
-            </v-col>
-          </v-row>
+          <activity-card v-for="activity in ACTIVITY" type="sub" :key="activity.id" :img-src="activity.imgSrc"
+            :date="activity.date" :title="activity.title" :content="activity.content" :id="activity.id"></activity-card>
           <base-button icon="mdi-arrow-right" theme="gray">查看更多</base-button>
         </v-container>
       </v-card>
     </v-container>
-    <v-container class="flex-center flex-column px-26 bg-background-secondary max-w-full" id="policy"><main-title
-        english-title="POLICY ISSUES" title="政策議題"></main-title><base-swiper></base-swiper></v-container>
-    <v-container class="d-flex justify-center px-26 ga-6 mainBlock actions">
+    <v-container :class="fullContainerClass" id="policy"><main-title english-title="POLICY ISSUES"
+        title="政策議題"></main-title><base-swiper></base-swiper></v-container>
+    <v-container class="d-flex justify-center ga-6 mainBlock actions">
       <base-action-card :block="item.block" :dialog-id="item.id" v-for="item in ACTION" :title="item.title"
         :content="item.content" :imgSrc="item.imgSrc" :button="item.button" :class="item.block"></base-action-card>
     </v-container>
@@ -67,19 +55,13 @@ import BaseSwiper from '~/components/UI/BaseSwiper.vue';
 import BaseActionCard from '~/components/UI/BaseActionCard.vue';
 import BottomIntro from '~/components/Home/Intro/BottomIntro.vue';
 import BaseDialog from '~/components/UI/Dialog/BaseDialog.vue';
-import { useHomeStore } from '~/stores/home';
+import ActivityCard from '~/components/Home/Activity/ActivityCard.vue';
 
-const homeStore = useHomeStore()
-
-const handleActivityDialog = (id: string) => {
-  homeStore.handleActiveDialog(Dialog.ACTIVITY, id)
-}
-
+const fullContainerClass = "max-w-full bg-background-secondary flex-column flex-center"
 </script>
 
 <style setup lang="scss" scoped>
 .multi {
-
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;

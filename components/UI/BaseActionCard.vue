@@ -1,8 +1,8 @@
 <template>
   <v-col :id="props.block"
-    :class="['rounded-xl', 'actionCard', props.dialogId === Dialog.DONATE ? 'bg-primary' : 'bg-text-primary']">
+    :class="['rounded-xl d-flex justify-space-between flex-column', 'actionCard', props.dialogId === Dialog.DONATE ? 'bg-primary' : 'bg-text-primary']">
     <p class="text-mantou title">{{ props.title }}</p>
-    <p style="font-size: 20px;" class="pt-4 pb-6">{{ props.content }}</p>
+    <p style="font-size: 20px;height:60px">{{ props.content }}</p>
     <v-row class="d-flex align-center justify-space-between" style="height: fit-content">
       <base-button icon="mdi-arrow-right" theme="white" @click="activateDialog">{{ props.button }}</base-button>
       <v-img :src="props.imgSrc"
