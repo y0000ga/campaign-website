@@ -6,6 +6,7 @@
 .cache
 .vscode
 .gitignore
+dist
 
 # Node dependencies
 node_modules

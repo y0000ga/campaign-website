@@ -1,10 +1,10 @@
 <template>
   <v-container class="d-flex justify-center flex-column  ga-4 mb-6">
-    <v-row class="flex-center sloganContainer">
+    <v-row class="flex-center sloganContainer" data-aos="fade-up" data-aos-duration="500">
       <h1 v-for="item in SLOGAN" class="styled-gradient text-mantou slogan">{{ item }}</h1>
     </v-row>
-    <v-row class="flex-center  ga-4 sloganContainer">
-      <v-chip class="text-h3 text-white bg-text-primary title rounded-a-4" size="x-large">2024 立委參選人</v-chip>
+    <v-row class="flex-center  ga-4 sloganContainer" data-aos-duration="500" data-aos-delay="500" data-aos="fade-up">
+      <v-chip class="text-h3 text-white bg-text-primary title rounded-a-4" size="x-large" data-aos->2024 立委參選人</v-chip>
       <v-card class="d-flex align-center px-4 py-3 shadow-md">
         <v-chip class="number text-white rounded-pill d-flex justify-center mr-3 font-weight-black">3</v-chip>
         <h1 class="text-h1 text-primary">{{ LEGISLATOR.name }} {{ LEGISLATOR.englishName }}</h1>

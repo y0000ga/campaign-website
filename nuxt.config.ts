@@ -3,23 +3,25 @@ export default defineNuxtConfig({
   experimental: {
     payloadExtraction: false
   },
-  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify', '@pinia/nuxt',],
+  buildModules: ['@nuxt/typescript-build', '@nuxtjs/vuetify', '@pinia/nuxt', 'nuxt-aos', "nuxt-lodash",],
   build: {
-    transpile: ['vuetify'],
+    transpile: ['vuetify','lodash'],
   },
   css: ["@/assets/scss/style.scss"],
-  modules: ['@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', '@pinia-plugin-persistedstate/nuxt', '@nuxtjs/robots', ],
+  modules: ["nuxt-lodash", '@pinia/nuxt', '@pinia-plugin-persistedstate/nuxt', '@pinia-plugin-persistedstate/nuxt', '@nuxtjs/robots', 'nuxt-aos'],
   robots: {
-    Disallow: "",
+    groups: [
+      { userAgent: ["*"] }
+    ]
   },
   devtools: { enabled: true },
   typescript: {
-    typeCheck: {
-      eslint: {
-        files: './src/**/*.{ts,js,vue}'
-      }
-    },
+    // typeCheck: true
   },
+  aos: {},
+  plugins: [
+    { src: '~/plugins/aos.ts', mode: 'client' },
+  ],
   app: {
     head: {
       title: "喵立翰 | 台灣的明天 喵先鋪路",
@@ -35,11 +37,11 @@ export default defineNuxtConfig({
         { name: "og:description", content: "台灣的明天 喵先鋪路" },
         { name: "og:image", content: "" },
         { name: "og:url", content: "" }, {
-          name: "og:type",content:"website"
+          name: "og:type", content: "website"
         }
       ],
       link: [
-        {rel:'icon',type:'image/svg',href:'/logo.svg'}
+        { rel: 'icon', type: 'image/svg', href: '/logo.svg' }
       ]
     },
     baseURL: process.env.DEPLOY_ENV === 'GH_PAGES' ? '/campaign-website/' : '/',
