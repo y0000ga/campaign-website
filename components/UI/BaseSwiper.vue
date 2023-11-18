@@ -1,6 +1,6 @@
 <template>
   <swiper :navigation="customNavigation" effect="coverflow" :spaceBetween="0" :grabCursor="true" :centeredSlides="true"
-    :slidesPerView="'auto'" :pagination="customPagination" :modules="modules" :loop="true" class="w-100 py-13">
+    :slidesPerView="'auto'" :pagination="customPagination" :modules="modules" :loop="true" class="w-100 my-13">
     <swiper-slide v-for="policy in  [...POLICY, ...POLICY]"   :key="policy.id" class="pa-8 bg-white d-flex rounded-xl overflow-hidden">
       <v-img :src="policy.imgSrc" width="428px"/>
       <v-container class="pa-0 d-flex flex-column justify-center">

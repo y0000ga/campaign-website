@@ -55,7 +55,7 @@ export const SOCIAL = [{
 
 export const PROMOTION = ["為喵星人，護台灣！", "從喵的眼中，看見台灣！", "喵的未來，人的希望！"]
 
-export const ADVOCATE = '候選人主張'
+export const ADVOCATE = '競選主張'
 
 export const TAIWAN_FUTURE = "台灣的未來"
 

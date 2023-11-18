@@ -15,7 +15,7 @@ import { NAV } from '@/utils/constant'
 
 const handleScroll = (id: string) => {
   const container = document.getElementById(id)
-  container?.scrollIntoView({ behavior: 'smooth' })
+  container &&window.scroll({ top: container.offsetTop, behavior: 'smooth' });
 }
 
 </script>

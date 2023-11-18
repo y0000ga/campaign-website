@@ -21,14 +21,14 @@
       </v-card>
     </v-container>
     <v-container class="flex-center flex-column mainBlock" id="activity"><main-title data-aos="zoom-in"
-         data-aos-duration="500" data-aos-anchor-placement="bottom-bottom" english-title="LATEST EVENTS"
+         data-aos-duration="500" data-aos-anchor-placement="center-bottom" english-title="LATEST EVENTS"
         title="最新活動"></main-title>
       <v-card class="d-flex mt-10 ga-6 max-w-primary activity" variant="flat">
         <activity-card data-aos="fade-right" data-aos-duration="500"
-          data-aos-anchor-placement="bottom-bottom" type="main" :img-src="ACTIVITY[0].imgSrc" :date="ACTIVITY[0].date"
+          data-aos-anchor-placement="center-bottom" type="main" :img-src="ACTIVITY[0].imgSrc" :date="ACTIVITY[0].date"
           :id="ACTIVITY[0].id" :title="ACTIVITY[0].title" :content="ACTIVITY[0].content"></activity-card>
         <v-container class="pa-0 d-flex flex-column relative ga-7" data-aos="fade-left"
-          data-aos-anchor-placement="bottom-bottom" data-aos-duration="500">
+          data-aos-anchor-placement="center-bottom" data-aos-duration="500">
           <activity-card v-for="activity in ACTIVITY" type="sub" :key="activity.id" :img-src="activity.imgSrc"
             :date="activity.date" :title="activity.title" :content="activity.content" :id="activity.id"></activity-card>
           <base-button icon="mdi-arrow-right" theme="gray">查看更多</base-button>
@@ -36,15 +36,15 @@
       </v-card>
     </v-container>
     <v-container :class="fullContainerClass" id="policy"><main-title data-aos="zoom-in"
-        data-aos-anchor-placement="bottom-bottom" data-aos-duration="250" english-title="POLICY ISSUES"
-        title="政策議題"></main-title><base-swiper data-aos="fade-left" data-aos-anchor-placement="bottom-bottom"
+        data-aos-anchor-placement="center-bottom" data-aos-duration="250" english-title="POLICY ISSUES"
+        title="政策議題"></main-title><base-swiper data-aos="fade-left" data-aos-anchor-placement="center-bottom"
         data-aos-duration="500"></base-swiper></v-container>
     <v-container class="d-flex justify-center ga-6 mainBlock actions">
       <base-action-card :block="item.block" :dialog-id="item.id" v-for="(item,index) in ACTION" :data-aos="index=== 0 ?'fade-right':'fade-left'"
-        data-aos-duration="500" data-aos-anchor-placement="bottom-bottom" :title="item.title" :content="item.content"
+        data-aos-duration="500" data-aos-anchor-placement="center-bottom" :title="item.title" :content="item.content"
         :imgSrc="item.imgSrc" :button="item.button" :class="item.block"></base-action-card>
     </v-container>
-    <bottom-intro data-aos="zoom-in" data-aos-duration="500" data-aos-anchor-placement="bottom-bottom"></bottom-intro>
+    <bottom-intro data-aos="zoom-in" data-aos-duration="500" data-aos-anchor-placement="center-bottom"></bottom-intro>
     <base-dialog></base-dialog>
   </div>
 </template>
