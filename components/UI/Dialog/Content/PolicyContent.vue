@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { useHomeStore } from '~/stores/home';
 import { POLICY } from '~/utils/constant';
-import { useResponsive, Device } from '~/utils/hooks/useResponsive';
+import { useResponsive, Device } from '~/composables/useResponsive';
 import EventContainer from '../EventContainer.vue';
 import MoreEventContainer from '../MoreEventContainer.vue';
 import SubEventCard from '../SubEventCard.vue';

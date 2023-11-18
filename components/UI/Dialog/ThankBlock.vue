@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import donate_finish from '~/assets/image/donate_finish.svg'
-import { useResponsive, Device } from '~/utils/hooks/useResponsive';
+import { useResponsive, Device } from '~/composables/useResponsive';
 import { useHomeStore } from '~/stores/home';
 import BaseButton from '../BaseButton.vue';
 const homeStore = useHomeStore()

@@ -40,7 +40,7 @@
 import BaseButton from '~/components/UI/BaseButton.vue';
 import mail_man from '~/assets/image/mail_man.svg'
 import mail_man_desktop from '~/assets/image/mail_man_desktop.svg'
-import { useResponsive, Device } from '~/utils/hooks/useResponsive';
+import { useResponsive, Device } from '~/composables/useResponsive';
 import ThankBlock from '~/components/UI/Dialog/ThankBlock.vue'
 import ActionContainer from '~/components/UI/Dialog/ActionContainer.vue';
 

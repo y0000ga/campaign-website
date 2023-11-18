@@ -9,7 +9,7 @@
           您的小筆捐款<br />
           是每隻毛孩未來的大大動力！</h6>
         <p :class="[isDesktop ? 'text-body-1' : 'text-caption', 'mt-4']">目前小額贊助總金額</p>
-        <h5 :class="[isDesktop ? 'text-h2' : 'text-h5']">{{moneyTrans(money)}}</h5>
+        <h5 :class="[isDesktop ? 'text-h2' : 'text-h5']">{{ moneyTrans(money) }}</h5>
       </v-col>
       <v-img :src="donate"
         :style="{ 'width': isDesktop ? undefined : '98px', 'min-width': isDesktop ? '348px' : '98px', 'height': isDesktop ? '348px' : '95px', 'max-width': isDesktop ? undefined : '98px' }"></v-img>
@@ -48,9 +48,9 @@ import BaseButton from '~/components/UI/BaseButton.vue';
 import { moneyTrans } from '~/utils/helper';
 import { DONATE_PLAN } from '~/utils/constant'
 import ThankBlock from '~/components/UI/Dialog/ThankBlock.vue'
-import { useResponsive, Device } from '~/utils/hooks/useResponsive';
+import { useResponsive, Device } from '~/composables/useResponsive';
 import ActionContainer from '~/components/UI/Dialog/ActionContainer.vue';
-import { useCounter } from '~/utils/hooks/useCounter';
+import { useCounter } from '~/composables/useCounter';
 
 const money = useCounter(987655873)
 

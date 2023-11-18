@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useResponsive, Device } from '~/utils/hooks/useResponsive';
+import { useResponsive, Device } from '~/composables/useResponsive';
 
 interface Props {
   imgSrc: string,

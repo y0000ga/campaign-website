@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useResponsive, Device } from '~/utils/hooks/useResponsive';
+import { useResponsive, Device } from '~/composables/useResponsive';
 const { device } = useResponsive()
 const isDesktop = computed(() => device.value === Device.Desktop)
 </script>
