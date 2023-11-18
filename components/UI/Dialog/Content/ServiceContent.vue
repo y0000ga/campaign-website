@@ -63,10 +63,10 @@ type TMail = {
 }
 
 const mail = reactive({
-  name: initInput,
-  email: initInput,
-  tel: initInput,
-  advice: initInput,
+  name: {...initInput},
+  email: { ...initInput },
+  tel: { ...initInput },
+  advice: { ...initInput },
 })
 
 const validation = ({ advice, tel, name, email }: TMail) => {
@@ -84,11 +84,13 @@ const validation = ({ advice, tel, name, email }: TMail) => {
     } else {
       mail.advice.error = ''
     }
+
     if (isTelEmpty) {
       mail.tel.error = '內容不得為空'
     } else {
       mail.tel.error = ''
     }
+
     if (isNameEmpty) {
       mail.name.error = '內容不得為空'
     } else {
@@ -109,6 +111,7 @@ const validation = ({ advice, tel, name, email }: TMail) => {
     } else {
       mail.email.error = ''
     }
+    console.log(mail)
     return false
   }
 }
