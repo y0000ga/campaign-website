@@ -6,21 +6,21 @@ import * as directives from 'vuetify/directives'
 const customLightTheme = {
   dark: false,
   colors: {
-    "gradient-primary": "#E5793B",
-    "gradient-secondary": "#FF4185",
-    "primary": "#DA7D4A",
-    "text-primary": "#334155",
-    "text-secondary": "#94A3B8",
-    "background-primary": '#FDFCFB',
-    "background-secondary": "#F7ECE1",
-    "gray-50": "#F8FAFC",
-    "gray-1": "#F1F5F9",
-    "gray-200": "#E2E8F0",
-    "gray-300": "#CBD5E1",
-    "gray-5": "#64748B",
-    "gray-600": "#475569",
-    "gray-800": "#1E293B",
-    "gray-900": "#0F172A",
+    'gradient-primary': '#E5793B',
+    'gradient-secondary': '#FF4185',
+    primary: '#DA7D4A',
+    'text-primary': '#334155',
+    'text-secondary': '#94A3B8',
+    'background-primary': '#FDFCFB',
+    'background-secondary': '#F7ECE1',
+    'gray-50': '#F8FAFC',
+    'gray-1': '#F1F5F9',
+    'gray-200': '#E2E8F0',
+    'gray-300': '#CBD5E1',
+    'gray-5': '#64748B',
+    'gray-600': '#475569',
+    'gray-800': '#1E293B',
+    'gray-900': '#0F172A',
   },
 }
 
@@ -31,12 +31,13 @@ export default defineNuxtPlugin((nuxtApp) => {
     theme: {
       defaultTheme: 'customLightTheme',
       themes: {
-        customLightTheme
-      }
+        customLightTheme,
+      },
     },
     icons: {
       defaultSet: 'mdi',
     },
   })
+  // @ts-ignore
   nuxtApp.vueApp.use(vuetify)
 })

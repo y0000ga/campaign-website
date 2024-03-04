@@ -111,7 +111,6 @@ const validation = ({ advice, tel, name, email }: TMail) => {
     } else {
       mail.email.error = ''
     }
-    console.log(mail)
     return false
   }
 }
