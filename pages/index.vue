@@ -117,7 +117,7 @@
       data-aos-duration="500"
       data-aos-anchor-placement="center-bottom"
     ></bottom-intro>
-    <base-dialog></base-dialog>
+    <teleport to='.v-application__wrap'><base-dialog></base-dialog></teleport>
   </div>
 </template>
 
