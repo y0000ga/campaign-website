@@ -1,4 +1,4 @@
-# 立委競選官網
+# 競選官網
 
 <img src="https://i.imgur.com/qUUgDdt.png" width="100%">
 
@@ -8,7 +8,7 @@
 
 ## 作品說明
 
-提供立委候選人形象 RWD 官網，不只能為候選人塑造優良形象，並且讓使用者可以獲得政見主張資訊且明確看到小額捐款的指引。
+提供候選人形象 RWD 一頁式形象網站，不只能為候選人塑造優良形象，並且讓使用者可以獲得政見主張資訊且明確看到小額捐款的指引。
 
 ## 系統說明
 
@@ -52,9 +52,10 @@ npm run dev
 
 1. Nuxt.js
 2. Typescript
-3. AOS (Animate on Scroll)
-4. vuetify
-5. pinia
-6. swiper
-7. lottie-web
-8. nuxt-simple-robots
+3. Vue
+4. AOS (Animate on Scroll)
+5. vuetify
+6. pinia
+7. swiper
+8. lottie-web
+9. nuxt-simple-robots
